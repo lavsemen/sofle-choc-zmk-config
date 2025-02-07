@@ -35,14 +35,14 @@
         screen_shoot: screen_shoot {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_SHIFT &kp LCTRL &kp LEFT_GUI &kp NUMBER_4>;
+            bindings = <&kp LS(LG(LC(NUMBER_4)))>;
             label = "SCREEN_SHOOT";
         };
 
         record_video: record_video {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LSHFT &kp LEFT_GUI &kp NUMBER_5>;
+            bindings = <&kp LS(LG(NUMBER_5))>;
             label = "RECORD_VIDEO";
         };
     };
