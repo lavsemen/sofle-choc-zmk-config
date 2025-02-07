@@ -31,6 +31,22 @@
 
     right_encoder: encoder_right { steps = <40>; };
 
+    macros {
+        screen_shoot: screen_shoot {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_SHIFT &kp LCTRL &kp LEFT_GUI &kp NUMBER_4>;
+            label = "SCREEN_SHOOT";
+        };
+
+        record_video: record_video {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LSHFT &kp LEFT_GUI &kp NUMBER_5>;
+            label = "RECORD_VIDEO";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -88,11 +104,11 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &trans          &trans         &trans    &trans     &trans   &trans
-&trans      &kp INS       &kp PSCRN     &kp K_CMENU   &trans        &trans                          &kp PG_UP       &kp PAGE_DOWN  &trans    &trans     &trans   &trans
-&trans      &kp LALT      &kp LCTRL     &kp LSHFT     &trans        &kp CLCK                        &kp LEFT_ARROW  &kp UP_ARROW   &kp DOWN  &kp RIGHT  &kp DEL  &kp BSPC
-&trans      &kp K_UNDO    &kp K_CUT     &kp K_COPY    &kp K_PASTE   &trans        &trans    &trans  &trans          &trans         &trans    &trans     &trans   &trans
-                          &trans        &trans        &trans        &trans        &trans    &trans  &trans          &trans         &trans    &trans
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1   &bt BT_SEL 2  &bt BT_SEL 3   &bt BT_SEL 4                    &trans          &trans         &trans    &trans     &trans   &trans
+&trans      &kp INS       &kp PSCRN      &kp K_CMENU   &record_video  &trans                          &kp PG_UP       &kp PAGE_DOWN  &trans    &trans     &trans   &trans
+&trans      &kp LALT      &screen_shoot  &kp LSHFT     &trans         &kp CLCK                        &kp LEFT_ARROW  &kp UP_ARROW   &kp DOWN  &kp RIGHT  &kp DEL  &kp BSPC
+&trans      &kp K_UNDO    &kp K_CUT      &kp K_COPY    &kp K_PASTE    &trans        &trans    &trans  &trans          &trans         &trans    &trans     &trans   &trans
+                          &trans         &trans        &trans         &trans        &trans    &trans  &trans          &trans         &trans    &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
